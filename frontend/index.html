@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Менеджер задач</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>✅ ToDo App</h1>
+            <p>Организуйте ваши задачи эффективно</p>
+        </header>
+        <div class="add-task-section">
+            <input type="text" id="taskInput" placeholder="Введите новую задачу..." maxlength="100"
+                aria-label="Текст новой задачи">
+            <button onclick="addTask()" aria-label="Добавить задачу">➕ Добавить</button>
+        </div>
+        <div class="filters-stats">
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterTasks('all')">Все</button>
+                <button class="filter-btn" onclick="filterTasks('active')">Активные</button>
+                <button class="filter-btn" onclick="filterTasks('completed')">Выполненные</button>
+            </div>
+
+            <div class="stats">
+                <span id="tasksCount">Всего: 0</span>
+                <span id="completedCount">Выполнено: 0</span>
+            </div>
+        </div>
+        <div class="tasks-list" id="tasksList">
+            <div class="empty-state" id="emptyState">
+                <p>🎉 Пока нет задач! Добавьте первую задачу выше.</p>
+            </div>
+        </div>
+        <div class="actions" id="actionsSection" style="display: none;">
+            <button onclick="toggleAllTasks()" class="secondary">📋 Отметить все</button>
+            <button onclick="clearCompleted()" class="secondary">🗑️ Удалить выполненные</button>
+        </div>
+    </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>✏️ Редактировать задачу</h3>
+            <input type="text" id="editInput" placeholder="Введите текст новой задачи..." aria-label="Редактирование задачи">
+            <div class="modal-actions">
+                <button onclick="saveEdit()">💾 Сохранить</button>
+                <button onclick="closeEditModal()" class="secondary">❌ Отмена</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
